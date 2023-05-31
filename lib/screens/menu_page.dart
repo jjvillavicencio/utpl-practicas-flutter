@@ -33,6 +33,13 @@ class MenuPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/news_page');
+                    },
+                    icon: const Icon(Icons.data_array),
+                    label: const Text("Lectura JSON"),
+                  ),
                 ],
               ),
             ),
