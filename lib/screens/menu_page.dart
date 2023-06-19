@@ -23,7 +23,9 @@ class MenuPage extends StatelessWidget {
                     label: const Text("Ir contador"),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/carnet_page');
+                    },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: const [
