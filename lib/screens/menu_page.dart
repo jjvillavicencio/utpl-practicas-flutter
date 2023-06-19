@@ -40,6 +40,13 @@ class MenuPage extends StatelessWidget {
                     icon: const Icon(Icons.data_array),
                     label: const Text("Lectura JSON"),
                   ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/pokemon_page');
+                    },
+                    icon: const Icon(Icons.api),
+                    label: const Text("Lista de pokemons"),
+                  ),
                 ],
               ),
             ),
