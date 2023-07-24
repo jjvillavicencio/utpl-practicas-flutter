@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CounterPage extends StatefulWidget {
+import 'package:get/get.dart';
+
+import 'package:practicas/pages/counter/counter_controller.dart';
+
+class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
 
   @override
-  State<CounterPage> createState() => _CounterPageState();
-}
-
-class _CounterPageState extends State<CounterPage> {
-  int counter = 0;
-
-  @override
   Widget build(BuildContext context) {
+    final ctrl = Get.find<CounterController>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contador'),
@@ -21,11 +20,13 @@ class _CounterPageState extends State<CounterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              '$counter',
-              style: const TextStyle(
-                fontSize: 120,
-                fontWeight: FontWeight.w500,
+            Obx(
+              () => Text(
+                '${ctrl.counter.value}',
+                style: const TextStyle(
+                  fontSize: 120,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
             OutlinedButton.icon(
@@ -37,9 +38,7 @@ class _CounterPageState extends State<CounterPage> {
                 foregroundColor: Colors.indigo,
               ),
               onPressed: () {
-                counter = 0;
-                setState(() {});
-                print(counter);
+                ctrl.resetCounter();
               },
               icon: const Icon(Icons.settings_backup_restore),
               label: const Text('Reiniciar'),
@@ -55,9 +54,7 @@ class _CounterPageState extends State<CounterPage> {
             heroTag: 'decrement',
             backgroundColor: Colors.indigo,
             onPressed: () {
-              counter--;
-              setState(() {});
-              print(counter);
+              ctrl.decrement();
             },
             child: const Icon(Icons.remove),
           ),
@@ -65,9 +62,7 @@ class _CounterPageState extends State<CounterPage> {
             heroTag: 'increment',
             backgroundColor: Colors.indigo,
             onPressed: () {
-              counter++;
-              setState(() {});
-              print(counter);
+              ctrl.increment();
             },
             child: const Icon(Icons.add),
           ),

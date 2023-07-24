@@ -30,7 +30,7 @@ class _PokemonPage extends State<PokemonPage> {
                 mainAxisSpacing: 1.0, // Espacio vertical entre los elementos
                 crossAxisSpacing: 1, // Espacio horizontal entre los elementos
                 childAspectRatio:
-                    2, // Relación de aspecto de cada elemento (ancho:alto)
+                    3 / 2, // Relación de aspecto de cada elemento (ancho:alto)
               ),
               itemCount: items.length,
               itemBuilder: (context, index) {

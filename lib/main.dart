@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:practicas/screens/counter_page.dart';
+import 'package:practicas/pages/counter/counter_binding.dart';
+import 'package:practicas/pages/counter/counter_page.dart';
 import 'package:practicas/screens/pokemon_page.dart';
 import 'package:practicas/screens/carnet_page.dart';
 import 'package:practicas/screens/menu_page.dart';
@@ -15,14 +17,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       home: const MenuPage(),
       routes: {
-        '/contador': (BuildContext context) => const CounterPage(),
+        /// NOTE: se sustituye por navegación con GetX
+        // '/contador': (BuildContext context) => const CounterPage(),
         '/news_page': (BuildContext context) => const NewsPage(),
         '/pokemon_page': (BuildContext context) => const PokemonPage(),
         '/carnet_page': (BuildContext context) => const CarnetPage(),
       },
+      getPages: [
+        GetPage(
+          transition: Transition.zoom,
+          name: '/contador_get',
+          page: () => const CounterPage(),
+          bindings: [
+            CounterBinding(),
+          ],
+        ),
+      ],
     );
   }
 }

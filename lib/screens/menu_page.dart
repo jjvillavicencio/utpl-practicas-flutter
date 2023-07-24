@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -15,20 +16,29 @@ class MenuPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // ElevatedButton.icon(
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, '/contador');
+                  //   },
+                  //   icon: const Icon(Icons.alarm_add_rounded),
+                  //   label: const Text("Ir contador"),
+                  // ),
                   ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/contador');
+                      Get.toNamed(
+                        '/contador_get',
+                      );
                     },
                     icon: const Icon(Icons.alarm_add_rounded),
-                    label: const Text("Ir contador"),
+                    label: const Text("Ir contador GetX"),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/carnet_page');
                     },
-                    child: Row(
+                    child: const Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: const [
+                      children: [
                         Icon(Icons.assignment_ind_outlined),
                         SizedBox(width: 10),
                         Text("Ir a Carnet"),
